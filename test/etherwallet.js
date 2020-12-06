@@ -5,12 +5,12 @@ contract('EtherWallet', accounts => {
 
     before(async () => {
         etherWallet = await EtherWallet.deployed();
-    })
+    });
 
     it('Should set accounts[0] as owner', async () => {
         const owner = await etherWallet.owner();
         assert(owner === accounts[0]);
-    })
+    });
 
     it('Should deposit ether to etherWallet', async () => {
         await etherWallet.deposit({ 
@@ -20,5 +20,11 @@ contract('EtherWallet', accounts => {
         const balance = await web3.eth.getBalance(etherWallet.address);
         
         assert(parseInt(balance) === 100);
+    });
+
+    it('Should return the balance of the contract', async () => {
+        const balance = await etherWallet.balanceOf();
+        
+        assert(parseInt(balance) = 100);
     });
 })
