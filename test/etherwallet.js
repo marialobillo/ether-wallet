@@ -11,4 +11,14 @@ contract('EtherWallet', accounts => {
         const owner = await etherWallet.owner();
         assert(owner === accounts[0]);
     })
+
+    it('Should deposit ether to etherWallet', async () => {
+        await etherWallet.deposit({ 
+            from : accounts[0],
+            vavlue: 100
+        });
+        const balance = await web3.eth.getBalance(etherWallet.address);
+        
+        assert(parseInt(balance) === 100);
+    });
 })
