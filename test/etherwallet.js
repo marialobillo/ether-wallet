@@ -15,16 +15,38 @@ contract('EtherWallet', accounts => {
     it('Should deposit ether to etherWallet', async () => {
         await etherWallet.deposit({ 
             from : accounts[0],
-            vavlue: 100
+            value: 100
         });
         const balance = await web3.eth.getBalance(etherWallet.address);
-        
         assert(parseInt(balance) === 100);
     });
 
     it('Should return the balance of the contract', async () => {
         const balance = await etherWallet.balanceOf();
-        
-        assert(parseInt(balance) = 100);
+        assert(parseInt(balance) == 100);
+    });
+
+    it('Should transfer ether to another address', async () => {
+        const balanceRecepientBefore = await web3.eth.getBalance(accounts[1]);
+        await etherWallet.send(accounts[1], 50, {
+            from: accounts[0]
+        });
+        const balanceWallet = await web3.eth.getBalance(etherWallet.address);
+        assert(parseInt(balanceWallet) === 50);
+
+        const balanceRecepientAfter = await web3.eth.getBalance(accounts[1]);
+        const finalBalance = web3.utils.toBN(balanceRecepientAfter);
+        const initialBalance = web3.utils.toBN(balanceRecepientBefore);
+        assert(finalBalance.sub(initialBalance).toNumber() === 50);
+    });
+
+    it('Should NOT transfer ether if tx not sent from owner', async () => {
+        try {
+            await etherWallet.send(accounts[1], 50, {from: accounts[1]});
+        } catch(error) {
+            assert(error.message.includes('Sender is not allowed'));
+            return;
+        }
+        assert(false);
     });
 })
