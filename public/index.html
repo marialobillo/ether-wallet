@@ -1,0 +1,41 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script src="bundle.js"></script>
+    </head>
+    <body>
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 jumbotron">
+                  <h1 class="text-center">Ether Wallet</h1>
+              </div>
+          </div>
+        <div class="row bg-secondary p-3 rounded mb-3">
+          <div class="col-sm-12">
+            <h2>Send Ether</h2>
+            <form id="send">
+              <div class="form-group">
+                <label for="sendAddress">To (address)</label>
+                <input id="sendAddress" type="text" class="form-control"></input>
+              </div>
+              <div class="form-group">
+                <label for="sendAmount">Amount (ether)</label>
+                <input id="sendAmount" type="number" class="form-control"></input>
+              </div>
+              <button type="submit" class="btn btn-warning">Send</button>
+            </form>
+          </div>
+        </div>
+        <div class="">
+
+            </div>
+        <div class="row text-light bg-dark p-3 rounded margin-top">
+            <div class="col-sm-12">
+              <h2>Get Balance</h2>
+              
+              <div>Balance: <span id="getBalance"></span></div>
+            </div>
+          </div>
+      </div>
+    </body>
+  </html
