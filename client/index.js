@@ -2,7 +2,7 @@ import Web3 from 'web3';
 import EtherWallet from '../build/contracts/EtherWallet.json';
 
 let web3;
-let etherWallet;
+let EtherWallet;
 
 const initWeb3 = () => {
     return new Promise((resolve, reject) => {
@@ -27,3 +27,26 @@ const initWeb3 = () => {
       resolve(new Web3('http://localhost:9545'));
     });
   };
+
+  const initContract = () => {
+    const networkId = await web3.eth.net.getId();
+    return new web3.Contract(
+        EtherWallet.abi, 
+        EtherWallet
+            .networks[networkId]
+            .address
+    );
+  };
+  
+
+  const initApp = () => {
+    const $send = document.getElementById('send');
+    const $getBalance = document.getElementById('getBalance');
+    let accounts = [];
+
+    web3.eth.getAccounts()
+    .then(_accounts => {
+        accounts = _accounts;
+    });
+  
+};

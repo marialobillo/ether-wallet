@@ -1,41 +1,67 @@
 <html>
-    <head>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <script src="bundle.js"></script>
-    </head>
-    <body>
-      <div class="container">
-          <div class="row">
-              <div class="col-sm-12 jumbotron">
-                  <h1 class="text-center">Ether Wallet</h1>
-              </div>
-          </div>
-        <div class="row bg-secondary p-3 rounded mb-3">
-          <div class="col-sm-12">
-            <h2>Send Ether</h2>
-            <form id="send">
-              <div class="form-group">
-                <label for="sendAddress">To (address)</label>
-                <input id="sendAddress" type="text" class="form-control"></input>
-              </div>
-              <div class="form-group">
-                <label for="sendAmount">Amount (ether)</label>
-                <input id="sendAmount" type="number" class="form-control"></input>
-              </div>
-              <button type="submit" class="btn btn-warning">Send</button>
-            </form>
-          </div>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="bundle.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row jumbotron">
+            <h1 class="text-center">Ether Wallet</h1>
         </div>
-        <div class="">
+        <div class="row bg-secondary rounded p-3">
+            <div class="col-sm-12">
+         
+                <form id="deposit">
+                    <h2>Deposit</h2>
+                    <div class="form-group">
+                    <label for="deposit-amount">Value</label>
+                    <input id="deposit-amount" type="number" class="form-control"></input>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <p id="deposit-result"></p>
+                </form>
 
             </div>
-        <div class="row text-light bg-dark p-3 rounded margin-top">
+        </div>
+
+          <hr>
+
+        <div class="row bg-light rounded p-3">
             <div class="col-sm-12">
-              <h2>Get Balance</h2>
-              
-              <div>Balance: <span id="getBalance"></span></div>
+                <form id="send">
+                    <h2>Send</h2>
+                    <div class="form-group">
+                      <label for="send-to">To</label>
+                      <input id="send-to" type="text" class="form-control"></input>
+                    </div>
+                    <div class="form-group">
+                      <label for="send-amount">Amount</label>
+                      <input id="send-amount" type="number" class="form-control"></input>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div>
+                    <p id="send-result"></p>
+                  </form>
+    
             </div>
-          </div>
+        </div>
+          
+          <hr>
+          
+        <div class="row ">
+
+            <div class="col-md-12 bg-dark text-light p-3 rounded">
+
+                <h2>Balance</h2>
+                <p>
+                    <span id="balance"></span>
+                </p>
+
+            </div>
+  
+        </div>
+        
       </div>
-    </body>
-  </html
+    </div>
+  </body>
+</html>
