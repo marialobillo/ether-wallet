@@ -92,6 +92,7 @@ const initWeb3 = () => {
           $sendResult.innerHTML = `Ooops...there was an error while trying to send from the contract...`;
         });
     });
+  }
 
 document.addEventListener('DOMContentLoaded', () => {
   initWeb3()
@@ -103,5 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
       etherWallet = _etherWallet;
       initApp();
     })
-    .catch(error => console.log(error.message));
-})
+    .catch(error => {
+      console.log(error.message);
+    });
+
+});
